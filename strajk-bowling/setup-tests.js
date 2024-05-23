@@ -1,13 +1,21 @@
-import { afterEach, beforeEach } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { afterAll, afterEach, beforeAll } from 'vitest';
+import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
+import { server } from './src/mocks/setup';
 
-import App from './src/App';
+// This does not work
+// beforeEach(() => {
+//     render(<App/>)
+// })
 
 afterEach(() => {
-  cleanup();
+    cleanup();
 });
 
-beforeEach(() => {
-    render(<App/>);
+beforeAll(() => {
+    server.listen();
+});
+
+afterAll(() => {
+    server.close();
 });

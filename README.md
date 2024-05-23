@@ -21,14 +21,14 @@ Som användare vill jag kunna navigera tillbaka till bokningsvyn efter bekräfte
 
 ## AcceptansKriterier
 
-Valt datum, tid, antal spelare och antal banor från BookingInfo Inputs skall synas i Confirmation och skickas till API.
+Valt datum, tid, antal spelare och antal banor kan väljas av användare och skickas sedan från BookingInfo Inputs, skall synas i Confirmation och POSTas till API.
 
 Input för skostorlek existerar och value skickas till API.
 Om antalet personer inte matchar antalet skor ges Error.
 
-- Knapp skapas för varje sko, klick tar bort den från listan, om antalet personer inte matchar antalet skor ges Error.
+"-" Knapp skapas för varje sko, klick tar bort den från listan, om antalet personer inte matchar antalet skor ges Error.
 
-Bokningsknapp "STRIIIIIIIIIIIIIKE" vid klick skickar Input.value och navigerar till Confirmation ifall inga Error. 
+Bokningsknapp "STRIIIIIIIIIIIIIKE" vid klick skickar Input.value och navigerar till Confirmation ifall inga Error, alla inputs måste vara ifyllda. 
 Totalsumma beräknas person.value*120 + lanes.value*100 och visas på Confirmation sida.
 
 Confirmation sida innehåller knapp "SWEET, LET'S GO" som navigerar till Booking.
