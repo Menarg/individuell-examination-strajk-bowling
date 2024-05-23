@@ -19,6 +19,20 @@ Som användare vill jag kunna skicka iväg min reservation och få tillbaka ett 
 
 Som användare vill jag kunna navigera tillbaka till bokningsvyn efter bekräftelse.
 
+## AcceptansKriterier
+
+Valt datum, tid, antal spelare och antal banor från BookingInfo Inputs skall synas i Confirmation och skickas till API.
+
+Input för skostorlek existerar och value skickas till API.
+Om antalet personer inte matchar antalet skor ges Error.
+
+- Knapp skapas för varje sko, klick tar bort den från listan, om antalet personer inte matchar antalet skor ges Error.
+
+Bokningsknapp "STRIIIIIIIIIIIIIKE" vid klick skickar Input.value och navigerar till Confirmation ifall inga Error. 
+Totalsumma beräknas person.value*120 + lanes.value*100 och visas på Confirmation sida.
+
+Confirmation sida innehåller knapp "SWEET, LET'S GO" som navigerar till Booking.
+
 ## Bibliotek ni behöver
 
 Följande bibliotek behöver ni installera för denna examination:
