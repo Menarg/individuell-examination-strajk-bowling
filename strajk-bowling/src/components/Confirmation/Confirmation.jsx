@@ -5,6 +5,7 @@ import Navigation from '../Navigation/Navigation';
 import Input from '../Input/Input';
 
 function Confirmation({ confirmationDetails, setConfirmation }) {
+  console.log('Confirmation page');
   return (
     <section className='confirmation'>
       <Navigation setConfirmation={setConfirmation} />
@@ -41,7 +42,7 @@ function Confirmation({ confirmationDetails, setConfirmation }) {
           />
           <article className='confirmation__price'>
             <p>Total:</p>
-            <p>{confirmationDetails.price} sek</p>
+            <p data-testid='confirmation__price'>{confirmationDetails.price} sek</p>
           </article>
           <button
             className='button confirmation__button'

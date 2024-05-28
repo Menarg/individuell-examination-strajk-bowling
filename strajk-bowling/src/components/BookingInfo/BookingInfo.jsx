@@ -20,6 +20,7 @@ function BookingInfo({ updateBookingDetails }) {
           <Input
             label='Time'
             type='time'
+            customClass='booking-info__time'
             name='time'
             handleChange={updateBookingDetails}
           />

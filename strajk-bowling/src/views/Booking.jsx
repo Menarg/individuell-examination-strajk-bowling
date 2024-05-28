@@ -18,6 +18,9 @@ function Booking() {
   const [shoes, setShoes] = useState([]);
   const [error, setError] = useState(false);
   const [confirmation, setConfirmation] = useState({});
+  
+      // log for testing
+      console.log(booking);
 
   function updateBookingDetails(event) {
     const { name, value } = event.target;
@@ -26,6 +29,7 @@ function Booking() {
     setBooking((prevState) => ({
       ...prevState,
       [name]: value,
+      
     }));
   }
 
@@ -93,6 +97,7 @@ function Booking() {
   }
 
   async function book() {
+    console.log('booking');
     if (
       booking.when &&
       booking.lanes &&
@@ -129,7 +134,7 @@ function Booking() {
             removeShoe={removeShoe}
             shoes={shoes}
           />
-          <button className='button booking__button' onClick={book}>
+          <button className='button booking__button' data-testid='booking__button' onClick={book}>
             strIIIIIike!
           </button>
           {error ? <ErrorMessage /> : ''}

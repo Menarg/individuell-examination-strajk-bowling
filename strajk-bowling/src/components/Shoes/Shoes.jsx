@@ -14,7 +14,7 @@ function Shoes({ updateSize, addShoe, removeShoe, shoes }) {
                 name={ input.id }
                 handleChange={ updateSize } />
             <button className='shoes__button shoes__button--small' 
-            onClick={ () => { removeShoe(input.id) }}>-</button>
+            data-testid='removeShoe' onClick={ () => { removeShoe(input.id) }}>-</button>
         </article> )
 
         return shoeInput;
@@ -26,7 +26,7 @@ function Shoes({ updateSize, addShoe, removeShoe, shoes }) {
                 <h2 className="shoes__heading">Shoes</h2>
             </header>
             { shoeComps }
-            <button className="shoes__button" onClick={ () => { addShoe(nanoid()) } }>+</button>
+            <button className="shoes__button" data-testid='addShoe' onClick={ () => { addShoe(nanoid()) } }>+</button>
         </section>
     )
 }
