@@ -58,7 +58,7 @@ describe('App', ()=> {
 
     });
             
-    it('Should mock a booking', async () => {
+    it('Should mock a booking and get a total price back.', async () => {
 
         const dateInput = screen.getByTestId('booking-info__date');
         fireEvent.change(dateInput, {
