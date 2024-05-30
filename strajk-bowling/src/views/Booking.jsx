@@ -120,7 +120,7 @@ function Booking() {
       setError(true);
     }
   }
-
+  console.log('Booking page');
   return (
     <main>
       {!confirmation?.active ? (

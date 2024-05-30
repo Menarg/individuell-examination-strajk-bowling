@@ -108,10 +108,74 @@ describe('App', ()=> {
             fireEvent.click(bookingButton)
         });
         
+        await waitFor(() => {
+            const confirmationPrice = screen.getByTestId('confirmation__price');
+            expect(confirmationPrice).toBeInTheDocument();
+            expect(confirmationPrice.innerHTML).toBe('580 sek');
+        });
 
+    });
+
+    it('Should mock a booking and return to startpage', async () => {
+
+        // all to get to the next page.
+        const dateInput = screen.getByTestId('booking-info__date');
+        fireEvent.change(dateInput, {
+            target: {value: '2024-06-06'},
+        });
+
+        const timeInput = screen.getByTestId('booking-info__time');
+        fireEvent.change(timeInput, {
+            target: {value: '18:30'},
+        });
+
+        const peopleInput = screen.getByTestId('booking-info__who');
+        fireEvent.change(peopleInput, {
+            target: {value: 4},
+        });
+
+        const lanesInput = screen.getByTestId('booking-info__lanes');
+        fireEvent.change(lanesInput, {
+            target: {value: 1},
+        });
+
+        const addShoeButton = screen.getByTestId('addShoe');
+        fireEvent.click(addShoeButton);
+        fireEvent.click(addShoeButton);
+        fireEvent.click(addShoeButton);
+        fireEvent.click(addShoeButton);
+
+        const shoesInput = screen.getAllByTestId('shoes__input');
+        const shoe1 = shoesInput[0]
+        const shoe2 = shoesInput[1]
+        const shoe3 = shoesInput[2]
+        const shoe4 = shoesInput[3]
+
+        fireEvent.change(shoe1, { target: {value: 44}, });
+        fireEvent.change(shoe2, { target: {value: 44}, });
+        fireEvent.change(shoe3, { target: {value: 44}, });
+        fireEvent.change(shoe4, { target: {value: 44}, });
+
+        const bookingButton = screen.getByTestId('booking__button');
+        await waitFor(() => {
+            fireEvent.click(bookingButton)
+        });
+        
         await waitFor(() => {
             const confirmationPrice = screen.getByTestId('confirmation__price');
             expect(confirmationPrice).toBeInTheDocument();
         });
+
+        //to get back to startpage.
+        await waitFor(() => {
+            const confirmationButton = screen.getByTestId('button confirmation__button');
+            fireEvent.click(confirmationButton)
+        });
+
+        await waitFor(() => {
+            const bookingButton = screen.getByTestId('booking__button');
+            expect(bookingButton).toBeInTheDocument();
+        });
+
     });
 })

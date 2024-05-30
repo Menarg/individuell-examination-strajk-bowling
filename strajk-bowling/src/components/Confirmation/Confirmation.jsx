@@ -46,6 +46,7 @@ function Confirmation({ confirmationDetails, setConfirmation }) {
           </article>
           <button
             className='button confirmation__button'
+            data-testid='button confirmation__button'
             onClick={(event) => {
               event.preventDefault();
               setConfirmation({});
